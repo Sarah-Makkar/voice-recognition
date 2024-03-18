@@ -1,0 +1,106 @@
+<!-- templates/home.html -->
+{% extends "base.html" %}
+{% block content %}
+<style type="text/css">
+    .input-group {
+      margin-bottom: 20px;
+      width: 60%;
+    }
+</style>
+
+<section class="h-100 h-custom" style="background-color: #332b58;">
+  {% if errorMessage %}
+  <div class="alert alert-dark" role="alert">
+   {{errorMessage}}
+  </div>
+{% endif %}
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-8 col-xl-7">
+        <div class="card rounded-3">
+          <img src="https://www.voicesummit.ai/hubfs/voice-technology-pandemic.jpg"
+            class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem; height: 300px"
+            alt="Sample photo">
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Acoustic properties of voice and speech</h3>
+
+            <form class="px-md-2" action="{% url 'homePost' %}" method="post">
+            {% csrf_token %}
+
+              <div class="form-outline mb-4">
+                <label class="form-label" for="sd">Standard deviation of frequency (sd)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sd" name="sd" aria-label="sd">
+                  <div class="input-group-append">
+                    <span class="input-group-text">kHz</span>
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label for="Q25">First quantile (Q25)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="Q25" name="Q25" aria-label="Q25">
+                  <div class="input-group-append">
+                    <span class="input-group-text">kHz</span>
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label for="IQR">Interquantile Range (IQR)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="IQR" name="IQR" aria-label="IQR">
+                  <div class="input-group-append">
+                    <span class="input-group-text">kHz</span>
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label for="spEnt">Spectral entropy (sp.ent)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="spEnt" name="spEnt" aria-label="spEnt">
+                  <div class="input-group-append">
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label for="sfm">Spectral flatness (sfm)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="sfm" name="sfm" aria-label="sfm">
+                  <div class="input-group-append">
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-outline mb-4">
+                <label for="meanfun">Average of fundamental frequency measured across acoustic signal (meanfun)</label>
+                <div class="input-group">
+                  <input type="text" class="form-control" id="meanfun" name="meanfun" aria-label="meanfun">
+                  <div class="input-group-append">
+                    <span class="input-group-text">kHz</span>
+                    <span class="input-group-text">0.000</span>
+                  </div>
+                </div>
+              </div>
+
+              <input class="btn btn-dark" type="submit" value="Submit">
+
+            </form>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{% endblock content %}

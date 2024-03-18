@@ -1,0 +1,106 @@
+<!-- templates/results.html -->
+{% extends "base.html" %}
+{% block content %}
+<!--<h1>Results page</h1>-->
+<!--<h4 class="font-weight-normal" style="padding: 1rem">Prediction</h4>-->
+<!--<div style="padding: 20px">-->
+<!--  <div class="card">-->
+<!--      <div class="card-header">-->
+<!--         You entered the following information:-->
+<!--      </div>-->
+<!--      <ul class="list-group list-group-flush">-->
+<!--        <li class="list-group-item">Standard deviation of frequency: {{sd}}</li>-->
+<!--        <li class="list-group-item">First quantile (Q25): {{Q25}}</li>-->
+<!--        <li class="list-group-item">Interquantile Range (IQR) : {{IQR}}</li>-->
+<!--        <li class="list-group-item">Spectral entropy: {{spEnt}}</li>-->
+<!--        <li class="list-group-item">Spectral flatness: {{sfm}}</li>-->
+<!--        <li class="list-group-item">Average of fundamental frequency measured across acoustic signal: {{sfm}}</li>-->
+<!--      </ul>-->
+<!--      <div class="card-body">-->
+<!--          {% if prediction == 0 %}-->
+<!--          <h6 class="card-title">Prediction - Male {{prediction}}</h6>-->
+<!--          {% else %}-->
+<!--          <h6 class="card-title">Prediction - Female {{prediction}}</h6>-->
+<!--          {% endif %}-->
+<!--      </div>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+
+<div style="background-color: #332b58;height: 100vh">
+
+      <div class="col d-flex justify-content-center" >
+        <div class="card mb-4" style="width: 50%; margin-top: 30px">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Standard deviation of frequency</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{sd}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">First quantile (Q25)</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{Q25}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Interquantile Range (IQR)</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{IQR}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Spectral entropy</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{spEnt}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Spectral flatness</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{sfm}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0">Average of fundamental frequency measured across acoustic signal</p>
+              </div>
+              <div class="col-sm-6">
+                <p class="text-muted mb-0">{{meanfun}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-6">
+                <p class="mb-0" style="font-weight: bold">Prediction</p>
+              </div>
+              <div class="col-sm-6">
+                {% if prediction == 0 %}
+                <p class="mb-0">Prediction - Male {{prediction}}</p>
+                {% else %}
+                <p class="mb-0">Prediction - Female {{prediction}}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock content %}
